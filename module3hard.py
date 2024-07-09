@@ -1,21 +1,21 @@
 def calculate_structure_sum(*data_):
     sum_ = 0
     for i in data_:
-        if type(i) is str:
+        if isinstance(i, str):
             sum_ += len(i)
-        elif type(i) is list:
+        elif isinstance(i, list):
             for j in i:
                 sum_ += calculate_structure_sum(j)
-        elif type(i) is tuple:
+        elif isinstance(i, tuple):
             for j in i:
                 sum_ += calculate_structure_sum(j)
-        elif type(i) is set:
+        elif isinstance(i, set):
             for j in i:
                 sum_ += calculate_structure_sum(j)
-        elif type(i) is dict:
+        elif isinstance(i, dict):
             for key, value in i.items():
                 sum_ += calculate_structure_sum(key, value)
-        elif type(i) is int:
+        elif isinstance(i, int):
             sum_ += i
     return sum_
 
